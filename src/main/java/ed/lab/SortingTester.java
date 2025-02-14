@@ -24,13 +24,21 @@ public class SortingTester<T extends Comparable<T>> {
 
             final LocalDateTime end = LocalDateTime.now();
             durations.add(Duration.between(start, end));
-        }
+
 
         double average = durations.stream()
                 .mapToLong(Duration::toMillis)
                 .average()
                 .orElse(0);
 
+        //Sumar todos los tiempos obtenidos
+        double sum = durations.stream()
+            .mapToLong(Duration::toMillis)
+                .sum();
+
+
         System.out.printf("\t\tTiempo promedio: %s ms\n", average);
+        System.out.printf("\t\tTiempo total: %s ms\n", sum);
     }
+}
 }
