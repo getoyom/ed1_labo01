@@ -8,9 +8,9 @@ public class Main {
         for (int i = 0; i < length; i++) {
             array[i] = i+1;
         }
-        Arrays.sort(array); //Ordenar el arreglo
+        Arrays.sort(array);
         return array;
-    }; // Reemplácelo por una función lambda
+    };
 
     private static final ArrayGenerator<Integer> invertedArrayGenerator = (length)-> {
         Integer[] array = new Integer[length];
@@ -25,21 +25,21 @@ public class Main {
             array[j] = temp;
         }
         return array;
-    }; // Reemplácelo por una función lambda
+    };
 
     private static final ArrayGenerator<Integer> randomArrayGenerator =  (length)-> {
         Integer[] array = new Integer[length];
         for (int i = 0; i < length; i++) {
-            array[i] = (int)(Math.random()*length); //Generar una lista de tamaño length con números random del 0 al 10
+            array[i] = (int)(Math.random()*length);
         }
         return array;
-    }; // Reemplácelo por una función lambda
+    };
 
-    private static final QuickSort<Integer> highPivotQuickSort = null; // Reemplácelo por una referencia a un método
+    private static final QuickSort<Integer> highPivotQuickSort = array -> SortingAlgorithms.highPivotQuickSort(array,0,array.length-1);
 
-    private static final QuickSort<Integer> lowPivotQuickSort = null; // Reemplácelo por una referencia a un método
+    private static final QuickSort<Integer> lowPivotQuickSort = array -> SortingAlgorithms.lowPivotQuickSort(array,0,array.length-1);
 
-    private static final QuickSort<Integer> randomPivotQuickSort = null; // Reemplácelo por una referencia a un método
+    private static final QuickSort<Integer> randomPivotQuickSort = array -> SortingAlgorithms.randomPivotQuickSort(array,0,array.length-1);
 
     public static QuickSort<Integer> getHighPivotQuickSort() {
         return highPivotQuickSort;
