@@ -38,7 +38,7 @@ public class SortingTester<T extends Comparable<T>> {
 
 
         System.out.printf("\t\tTiempo promedio: %s ms\n", average);
-        System.out.printf("\t\tTiempo total: %s ms\n", sum);//iulyhilu
+        System.out.printf("\t\tTiempo total: %s ms\n", sum);//
     }
 }
 }

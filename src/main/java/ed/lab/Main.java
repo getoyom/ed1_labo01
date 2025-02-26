@@ -1,11 +1,39 @@
 package ed.lab;
+import java.util.Arrays;
+
 
 public class Main {
-    private static final ArrayGenerator<Integer> sortedArrayGenerator = null; // Reemplácelo por una función lambda
+    private static final ArrayGenerator<Integer> sortedArrayGenerator = (length)-> {
+        Integer[] array = new Integer[length];
+        for (int i = 0; i < length; i++) {
+            array[i] = i+1;
+        }
+        Arrays.sort(array); //Ordenar el arreglo
+        return array;
+    }; // Reemplácelo por una función lambda
 
-    private static final ArrayGenerator<Integer> invertedArrayGenerator = null; // Reemplácelo por una función lambda
+    private static final ArrayGenerator<Integer> invertedArrayGenerator = (length)-> {
+        Integer[] array = new Integer[length];
+        for (int i = 0; i < length; i++) {
+            array[i] = i+1;
+        }
+        Arrays.sort(array);
+        for (int i = 0; i < array.length/2; i++) {
+            int j = array.length-i-1;
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }; // Reemplácelo por una función lambda
 
-    private static final ArrayGenerator<Integer> randomArrayGenerator = null; // Reemplácelo por una función lambda
+    private static final ArrayGenerator<Integer> randomArrayGenerator =  (length)-> {
+        Integer[] array = new Integer[length];
+        for (int i = 0; i < length; i++) {
+            array[i] = (int)(Math.random()*length); //Generar una lista de tamaño length con números random del 0 al 10
+        }
+        return array;
+    }; // Reemplácelo por una función lambda
 
     private static final QuickSort<Integer> highPivotQuickSort = null; // Reemplácelo por una referencia a un método
 
