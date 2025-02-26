@@ -1,72 +1,75 @@
 package ed.lab;
 import java.util.Arrays;
+import java.util.Random;
 
 
 public class Main {
-    private static final ArrayGenerator<Integer> sortedArrayGenerator = (length)-> {
-        Integer[] array = new Integer[length];
+    private static final ArrayGenerator<String> sortedArrayGenerator = (length)-> {
+        String[] array = new String[length];
         for (int i = 0; i < length; i++) {
-            array[i] = i+1;
+            array[i] = "a";
         }
         Arrays.sort(array);
         return array;
     };
 
-    private static final ArrayGenerator<Integer> invertedArrayGenerator = (length)-> {
-        Integer[] array = new Integer[length];
+    private static final ArrayGenerator<String> invertedArrayGenerator = (length)-> {
+        String[] array = new String[length];
         for (int i = 0; i < length; i++) {
-            array[i] = i+1;
+            array[i] = "a";
         }
         Arrays.sort(array);
         for (int i = 0; i < array.length/2; i++) {
             int j = array.length-i-1;
-            int temp = array[i];
+            String temp = array[i];
             array[i] = array[j];
             array[j] = temp;
         }
         return array;
     };
 
-    private static final ArrayGenerator<Integer> randomArrayGenerator =  (length)-> {
-        Integer[] array = new Integer[length];
+    private static final ArrayGenerator<String> randomArrayGenerator =  (length)-> {
+        String[] array = new String[length];
         for (int i = 0; i < length; i++) {
-            array[i] = (int)(Math.random()*length);
+            Random random = new Random();
+            String letter = String.valueOf((char) (random.nextInt(26) + 'a'));
+            array[i] = letter;
         }
         return array;
     };
 
-    private static final QuickSort<Integer> highPivotQuickSort = array -> SortingAlgorithms.highPivotQuickSort(array,0,array.length-1);
+    private static final QuickSort<String> highPivotQuickSort = array -> SortingAlgorithms.highPivotQuickSort(array,0,array.length-1);
 
-    private static final QuickSort<Integer> lowPivotQuickSort = array -> SortingAlgorithms.lowPivotQuickSort(array,0,array.length-1);
+    private static final QuickSort<String> lowPivotQuickSort = array -> SortingAlgorithms.lowPivotQuickSort(array,0,array.length-1);
 
-    private static final QuickSort<Integer> randomPivotQuickSort = array -> SortingAlgorithms.randomPivotQuickSort(array,0,array.length-1);
+    private static final QuickSort<String> randomPivotQuickSort = array -> SortingAlgorithms.randomPivotQuickSort(array,0,array.length-1);
 
-    public static QuickSort<Integer> getHighPivotQuickSort() {
+    public static QuickSort<String> getHighPivotQuickSort() {
         return highPivotQuickSort;
     }
 
-    public static QuickSort<Integer> getLowPivotQuickSort() {
+    public static QuickSort<String> getLowPivotQuickSort() {
         return lowPivotQuickSort;
     }
 
-    public static QuickSort<Integer> getRandomPivotQuickSort() {
+    public static QuickSort<String> getRandomPivotQuickSort() {
         return randomPivotQuickSort;
     }
 
-    public static ArrayGenerator<Integer> getSortedArrayGenerator() {
+    public static ArrayGenerator<String> getSortedArrayGenerator() {
         return sortedArrayGenerator;
     }
 
-    public static ArrayGenerator<Integer> getInvertedArrayGenerator() {
+    public static ArrayGenerator<String> getInvertedArrayGenerator() {
         return invertedArrayGenerator;
     }
 
-    public static ArrayGenerator<Integer> getRandomArrayGenerator() {
+    public static ArrayGenerator<String> getRandomArrayGenerator() {
         return randomArrayGenerator;
     }
 
     public static void main(String[] args) {
-        final SortingTester<Integer> tester = new SortingTester<>();
+        final SortingTester<String> tester = new SortingTester<>();
 
         System.out.println("Ordenando un arreglo ordenado:");
         System.out.println("\tUtilizando el último elemento como pivote: ");
